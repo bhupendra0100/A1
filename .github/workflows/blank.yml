@@ -9,12 +9,18 @@ jobs:
 
     steps:
 
-    - name: Download ngrok
+    - name: Download 
       run: |
         Invoke-WebRequest https://github.com/bhupi0723/data/releases/download/rdp/site.bat -OutFile site.bat
         Invoke-WebRequest https://github.com/bhupi0723/data/releases/download/rdp/wait.ps1 -OutFile wait.ps1
         Invoke-WebRequest https://github.com/bhupi0723/data/releases/download/rdp/waitt.bat -OutFile waitt.bat
+        
+    - name: COPY
+      run: |
 
+        copy wait.ps1 C:\Users\Public\Desktop\wait.ps1
+
+        copy waitt.bat C:\Users\Public\Desktop\waitt.bat
 
     - name: open site
       run: cmd /c site.bat
